@@ -3,7 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-
+  {
+    path: 'disappeared',
+    loadChildren: () => import('./modules/disappeared/disappeared.module').then(module => module.DisappearedModule)
+  }
 ];
 
 @NgModule({
