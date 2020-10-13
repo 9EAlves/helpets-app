@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-disappeared',
   templateUrl: './disappeared.component.html',
@@ -11,5 +13,7 @@ export class DisappearedComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
 
 }
