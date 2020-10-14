@@ -5,7 +5,8 @@ import { DisappearedRoutingModule } from './disappeared-routing.module';
 import { DisappearedComponent } from './disappeared.component';
 
 import {MatDividerModule} from '@angular/material/divider';
-import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -15,7 +16,8 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
     CommonModule,
     DisappearedRoutingModule,
     MatDividerModule,
-    MatBottomSheetModule
+
+    MatSelectModule
   ]
  
 })
