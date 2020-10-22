@@ -1,1 +1,31 @@
-<p>new-adoption works!</p>
+<div class="content">
+  <h2 mat-dialog-title>Publicar doação</h2>
+  <mat-horizontal-stepper linear="true" #stepper class=".mat-horizontal-stepper-header-container">
+    <!--<mat-step>
+
+    </mat-step> -->
+    <mat-step [stepControl]="adoptionFormGroup" editable="false">
+      <form [formGroup]="adoptionFormGroup" class="form">
+        <mat-form-field class="form-element">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="name" placeholder="Nome" required>
+        </mat-form-field>
+        <mat-form-field class="form-element">
+          <mat-label>Bairro</mat-label>
+          <input matInput formControlName="bairro" placeholder="Nome" required>
+        </mat-form-field>
+        <mat-form-field *ngIf="!isNewCria" class="form-element">
+          <mat-label>Rua e nº da casa</mat-label>
+          <input matInput formControlName="rua" placeholder="Nome" required>
+        </mat-form-field>
+        <mat-form-field class="form-element">
+          <mat-label>Rede Social</mat-label>
+          <input matInput formControlName="rede" placeholder="Nome" required>
+        </mat-form-field>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+  <div class="form-element">
+    <button mat-button class="button" color="warn" (click)="closeForm()">Fechar</button>
+  </div>
+</div>

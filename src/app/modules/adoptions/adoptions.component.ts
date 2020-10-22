@@ -25,9 +25,4 @@ export class AdoptionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openNewAdoptionModal(): void {
-    this.route.navigate(['/create-adoption'])
-
-
-  }
 }
