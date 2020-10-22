@@ -4,6 +4,7 @@
     padding: 35px;
     margin: auto;
     border-radius: 10px 20px;
+    box-shadow: 1px 1px 5px rgb(153, 153, 153);
 }
 
 .users-content{
