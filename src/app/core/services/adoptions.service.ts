@@ -24,5 +24,4 @@ export class AdoptionsService {
   findAdoptionById(adoptionId: String): Observable<HttpResponse<Adoption>> {
     return this.http.get<Adoption>(`${API_URL}/adoption/viewOne/${adoptionId}`, { observe: 'response' })
   }
-
 }
