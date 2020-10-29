@@ -3,7 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-
+  {
+    path: 'adoptions',
+    loadChildren: () => import('./modules/adoptions/adoptions.module').then(module => module.AdoptionsModule)
+  }
 ];
 
 @NgModule({
