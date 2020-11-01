@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "helpets-app"
+  "defaultProject": "helpets-app",
+  "cli": {
+    "analytics": "cbbbeab4-32fe-4ab4-a3f5-292d73881be7"
+  }
 }
