@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: 'adoptions',
     loadChildren: () => import('./modules/adoptions/adoptions.module').then(module => module.AdoptionsModule)
+  },
+  {
+    path: 'disappeared',
+    loadChildren: () => import('./modules/disappeared/disappeared.module').then(module => module.DisappearedModule)
   }
 ];
 
