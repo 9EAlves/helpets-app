@@ -25,6 +25,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -123,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "helpets-app"
+  "defaultProject": "helpets-app",
+  "cli": {
+    "analytics": "cbbbeab4-32fe-4ab4-a3f5-292d73881be7"
+  }
 }

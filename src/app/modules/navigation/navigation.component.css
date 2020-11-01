@@ -1,0 +1,32 @@
+.outlet{
+  height: 88vh;
+  padding: 15px
+}
+
+.toolbar {
+  padding: 5px;
+  background-color: aquamarine;
+}
+
+.menu-spacer {
+  flex: 1 1 auto;
+}
+
+.img {
+  width: 60px;
+  height: 45px;
+}
+
+.menu-elements {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.size-icon {
+  transform: scale(1.8);
+}
+
+.visible {
+  display: none !important;
+}
