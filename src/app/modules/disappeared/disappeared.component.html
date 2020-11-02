@@ -10,3 +10,8 @@
         </mat-select>
       </mat-form-field>
        
+      <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="13%"  *ngFor="let disappeared of Disappeared">
+          <app-disappeared-card [Disappeared]="disappeared"></app-disappeared-card>
+        </div>
+      </div>
