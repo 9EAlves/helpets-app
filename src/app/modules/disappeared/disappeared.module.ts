@@ -6,18 +6,25 @@ import { DisappearedComponent } from './disappeared.component';
 
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { DisappearedCardComponent } from './disappeared-card/disappeared-card.component';
+
 
 
 
 
 @NgModule({
-  declarations: [DisappearedComponent],
+  declarations: [DisappearedComponent, DisappearedCardComponent],
   imports: [
     CommonModule,
     DisappearedRoutingModule,
     MatDividerModule,
 
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatGridListModule,
+    
   ]
  
 })
