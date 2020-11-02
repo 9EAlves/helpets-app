@@ -9,13 +9,14 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DisappearedCardComponent } from './disappeared-card/disappeared-card.component';
+import { DisappearedDetailComponent } from './disappeared-detail/disappeared-detail.component';
 
 
 
 
 
 @NgModule({
-  declarations: [DisappearedComponent, DisappearedCardComponent],
+  declarations: [DisappearedComponent, DisappearedCardComponent, DisappearedDetailComponent],
   imports: [
     CommonModule,
     DisappearedRoutingModule,
