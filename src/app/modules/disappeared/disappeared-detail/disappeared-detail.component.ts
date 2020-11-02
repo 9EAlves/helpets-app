@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Disappeared} from './../../../core/models/disappeared.model';
-import { DisappearedService} from './../../../core/services/disappeared.service'
+import { Disappeared } from './../../../core/models/disappeared.model';
+import { DisappearedService } from './../../../core/services/disappeared.service'
 
 @Component({
   selector: 'app-disappeared-detail',
@@ -24,15 +24,15 @@ export class DisappearedDetailComponent implements OnInit {
     this.findDisappearedById(disappearedId)
   }
 
-  ngOnDestroy():void{
+  ngOnDestroy(): void {
     this.HttpRequest.unsubscribe()
   }
 
-  findDisappearedById(disappearedId: String): void{
-    this.HttpRequest = this.disappearedService.findDisappearedId(disappearedId).subscribe(response =>{
-     this.Disappeared = response.body['data']
-     // console.log(response.body['data'])
-    }, err =>{
+  findDisappearedById(disappearedId: String): void {
+    this.HttpRequest = this.disappearedService.findDisappearedId(disappearedId).subscribe(response => {
+      this.Disappeared = response.body['data']
+      // console.log(response.body['data'])
+    }, err => {
       console.log(err)
     })
   }
