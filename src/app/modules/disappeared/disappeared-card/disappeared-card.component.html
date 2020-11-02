@@ -1,4 +1,4 @@
-  <mat-card class="exemple-card">
+  <mat-card [routerLink]="['/disappeared/detail', Disappeared._id]" class="routerLinkDisappeared">
     <div class="row">
       <mat-card-subtitle>{{Disappeared.publication_type}}</mat-card-subtitle>
       <mat-card-subtitle>{{Disappeared.species}}</mat-card-subtitle>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-disappeared-detail',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisappearedDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private ActivatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    const disappearedName = this.ActivatedRoute.snapshot.params['disappearedName']
+    console.log(disappearedName)
   }
 
 }
