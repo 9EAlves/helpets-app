@@ -31,6 +31,10 @@ const routes: Routes = [
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
+  },
+  {
+    path: 'ong',
+    loadChildren: () => import('./modules/ongs/ongs.module').then(module => module.OngsModule)
   }
 
 ];
