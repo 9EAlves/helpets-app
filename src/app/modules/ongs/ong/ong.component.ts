@@ -29,7 +29,6 @@ export class OngComponent implements OnInit, OnDestroy {
   findAllUser(): void {
     this.httpRequest =  this.UserService.findAllUser().subscribe(response => {
       this.User = response.body['data']
-      console.log(this.User)
     }, err => {
       console.log(err)
     })
