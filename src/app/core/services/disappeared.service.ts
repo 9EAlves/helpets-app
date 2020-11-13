@@ -21,4 +21,5 @@ export class DisappearedService {
   findDisappearedId(disappearedId: String): Observable<HttpResponse<Disappeared>> {
     return this.http.get<Disappeared>(`${API_URL}/disappeared/viewOne/${disappearedId}`, { observe: 'response' })
   }
+
 }
