@@ -27,7 +27,7 @@ export class DisappearedComponent implements OnInit, OnDestroy{
   findAllDisappeared(): void{
     this.HttpRequest = this.disappearedService.findAllDisappeared().subscribe(response => {
       /** Sucesso da requisição */
-      this.Disappeared = response.body['disappeared']
+      this.Disappeared = response.body['data']
       console.log(response)
     }, err =>{
       /** Erro da requisição */

@@ -17,10 +17,11 @@ export interface User {
       } 
       bank_account: String
       paypal_account: String
-      address: String
+      address: {
         neighborhood: String
         street:String
         number: String
         apartament_number: String
+      }
     disappeared: Disappeared[]
 }
