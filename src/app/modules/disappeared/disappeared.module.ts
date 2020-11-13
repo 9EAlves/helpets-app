@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule} from '@angular/forms';
+
 
 import { DisappearedRoutingModule } from './disappeared-routing.module';
 import { DisappearedComponent } from './disappeared.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
+
 
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSelectModule} from '@angular/material/select';
@@ -25,8 +32,12 @@ import { ComponentsModule} from './../../components/components.module';
     MatSelectModule,
     MatCardModule,
     MatGridListModule,
-    ComponentsModule
-    
+    ComponentsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatInputModule
   ]
  
 })
