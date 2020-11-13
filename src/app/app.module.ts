@@ -1,11 +1,18 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule} from '@angular/common/http'
 
-import { NavigationModule } from './modules/navigation/navigation.module'
-import { AppRoutingModule } from "./app-routing.module"
-import { AppComponent } from './app.component';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from "ngx-toastr";
+
+import { UsersModule } from './modules/users/users.module';
+import { NavigationModule } from './modules/navigation/navigation.module';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from './app.component';
+
 
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
@@ -15,12 +22,18 @@ import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     NavigationModule,
     AppRoutingModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    
+    UsersModule,
+    AppRoutingModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

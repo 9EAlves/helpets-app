@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="select">
+    <mat-form-field style="width: 100%;" appearance="fill">
+      <mat-label>Filtrar por</mat-label>
+      <mat-select disableRipple value="1">
+        <mat-option value="1">Mais recente</mat-option>
+        <mat-option value="2">Mais antigo</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button mat-mini-fab class="button" aria-label="Publicar adoção" [routerLink]="['/adoptions/create']">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
