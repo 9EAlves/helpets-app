@@ -12,6 +12,7 @@ import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from './app.component';
 
 
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +23,8 @@ import { AppComponent } from './app.component';
     ToastrModule.forRoot(),
     NavigationModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [
 

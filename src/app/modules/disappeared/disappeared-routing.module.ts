@@ -10,7 +10,7 @@ const routes: Routes = [
     component: DisappearedComponent
   },
   {
-    path: 'detail/:disappearedName',
+    path: 'detail/:disappearedId',
     component: DisappearedDetailComponent
   }
 ];

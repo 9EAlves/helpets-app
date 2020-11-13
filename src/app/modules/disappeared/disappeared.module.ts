@@ -10,7 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DisappearedCardComponent } from './disappeared-card/disappeared-card.component';
 import { DisappearedDetailComponent } from './disappeared-detail/disappeared-detail.component';
-
+import { ComponentsModule} from './../../components/components.module';
 
 
 
@@ -25,6 +25,7 @@ import { DisappearedDetailComponent } from './disappeared-detail/disappeared-det
     MatSelectModule,
     MatCardModule,
     MatGridListModule,
+    ComponentsModule
     
   ]
  

@@ -1,1 +1,30 @@
-<p>disappeared-detail works!</p>
+
+<app-loading *ngIf="!Disappeared"></app-loading>
+
+<div *ngIf="Disappeared">
+  <div  class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAling="start center" fxLayoutAling.gt-sm="center start" fxLayoutGap="16px" >
+    <h2>{{Disappeared.user.name}}</h2>
+    <mat-divider></mat-divider>
+    <div> <!--  class="row-line"  -->
+      <div fxFlex="50%" fxFlex.gt-sm="25%">
+        <mat-card class="mat-elevation-z0">
+            
+              <img mat-card-image class="disappearedCover" [src]="Disappeared.image" alt="Photo of a {{Disappeared.pet_name}}">
+        </mat-card>
+      </div>
+      <div fxFlex="50%" fxFlex.gt-sm="75%">
+        <mat-card class="mat-elevation-z0">
+          <div class="row">
+            <p>{{Disappeared.description}}</p>
+            <h2 *ngIf="Disappeared.user.address.neighborhood">{{Disappeared.user.address.neighborhood}}</h2>
+            <h2>{{Disappeared.publication_type}}</h2>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div>
+        <h2 *ngIf="Disappeared.user.contact.cell_phone">{{Disappeared.user.contact.cell_phone}}</h2>
+        <h2 *ngIf="Disappeared.user.contact.instagram">{{Disappeared.user.contact.instagram}}</h2>
+      </div>
+    </div>
+</div>

@@ -2,7 +2,9 @@
     <h2>Desaparecidos</h2>
     <mat-divider></mat-divider>
   <br>
-    <mat-form-field style="width: 100%;"appearance="fill">
+  <app-loading *ngIf="!Disappeared"></app-loading>
+  <div *ngIf="Disappeared">  
+  <mat-form-field style="width: 100%;"appearance="fill">
         <mat-label>Select an option</mat-label>
         <mat-select disableRipple value="1">
           <mat-option value="1">Mais recente</mat-option>
@@ -15,3 +17,4 @@
           <app-disappeared-card [Disappeared]="disappeared"></app-disappeared-card>
         </div>
       </div>
+    </div> 
