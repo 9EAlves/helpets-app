@@ -3,11 +3,15 @@
       <mat-card-title>{{User.name}}</mat-card-title>
       <mat-card-subtitle>{{User.user_type}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image class="userOng-image" [src]="User.image" alt="Photo of {{User.name}}">
+      <img mat-card-image class="userOng-image" [src]="User.image" alt="Photo of {{User.name}}">
     <mat-card-content>
       <p>
         {{sliceSnyposis(User.description)}}
       </p>
     </mat-card-content>
+    <div class="example-button-row">
+     <a mat-flat-button color="primary" [routerLink]="">Mais informacoes</a>
+    </div>
 </mat-card>
+
   
