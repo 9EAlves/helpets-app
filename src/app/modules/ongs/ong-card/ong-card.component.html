@@ -9,8 +9,8 @@
         {{sliceSnyposis(User.description)}}
       </p>
     </mat-card-content>
-    <div class="example-button-row">
-     <a mat-flat-button color="primary" [routerLink]="">Mais informacoes</a>
+    <div class="example-button-row routerLinkOng">
+     <a mat-flat-button color="primary" [routerLink]="['/ong/detail', User._id]">Mais informacoes</a>
     </div>
 </mat-card>
 
