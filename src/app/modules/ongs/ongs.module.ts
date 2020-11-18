@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../../components/components.module';
 import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,6 +14,7 @@ import { OngDetailComponent } from './ong-detail/ong-detail.component';
 import { MatIconModule } from '@angular/material/icon';
 
 
+
 @NgModule({
   declarations: [
     OngComponent, 
@@ -25,7 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     FlexLayoutModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    ComponentsModule
   ]
 })
 export class OngsModule { }
