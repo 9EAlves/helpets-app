@@ -1,6 +1,6 @@
+<app-loading *ngIf="!User"></app-loading>
 
-
-    <div class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center" 
+    <div *ngIf="User" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center" 
     fxLayoutAlign.gt-sm="center start" fxLayoutGap="16px">
 
         <div fxFlex="50%" fxFlex.gt-sm="25%">
@@ -13,25 +13,26 @@
                     <mat-card-title>{{User.name}}</mat-card-title>
                     <mat-card-subtitle>CNPJ: {{User.cnpj}}</mat-card-subtitle>
                 </mat-card-header>
-                <mat-card-header>
-                    {{User.description}}
+            
+                 <mat-card-header>
+                    <p class="description">{{User.description}}</p>
                 </mat-card-header>
             </mat-card>
 
             <div class="account">
                 <mat-card class="mat-elevation-z3">
                     <mat-card-header>
-                        <div class="row">
-                            <span >
+                        <div class="row" *ngIf="User.bank_account|| User.paypal_account">
+                            <span>
                                 Informações bancarias para recebimento de doaçoes:
                             </span>
                             <br /><br />
-                            <span >
+                            <span *ngIf="User.bank_account">
                                 <mat-icon>account_balance</mat-icon>
                                 {{User.bank_account}}
                             </span>
                             <br>
-                            <span >
+                            <span *ngIf="User.paypal_account">
                                 <mat-icon>credit_card</mat-icon>
                                 {{User.paypal_account}}
                             </span>
@@ -43,50 +44,48 @@
         </div>
     
         <div fxFlex="50%" fxFlex.gt-sm="75%">
-            <mat-card class="mat-elevation-z0">
-                    <div class="row">
+            <mat-card class="mat-elevation-z3">
+                <mat-card-header>
+                    <div class="row" *ngIf="User.landline || User.cell_phone || User.instagram || User.facebook || User.street || User.number || User.city">
                         <span class="">
                             Entre em contato atraves:
                         </span>
                         <br /><br />
-                        <span >
+                        <span *ngIf="User.landline">
                             <mat-icon>phone</mat-icon>
                             {{User.landline}}
                         </span>
                         <br />
-                        <span >
+                        <span *ngIf="User.cell_phone">
                             <mat-icon>phone_android</mat-icon>
                             {{User.cell_phone}}
                         </span>
                         <br />
-                        <span >
+                        <span *ngIf="User.instagram">
                             <mat-icon>phonelink</mat-icon>
                             {{User.instagram}}
                         </span>
                         <br />
-                        <span >
+                        <span *ngIf="User.facebook">
                             <mat-icon>phonelink</mat-icon>
                             {{User.facebook}}
                         </span>
                         <br />
-                        <span >
+                        <span *ngIf="User.street">
                             <mat-icon>home</mat-icon>
                             {{User.street}}
                         </span>
                         &nbsp;
-                        <span >
+                        <span *ngIf="User.number">
                             {{User.number}}
                         </span>
                         &nbsp;
-                        <span >
+                        <span *ngIf="User.city">
                             {{User.city}}
-                        </span>
-                        <br />
-                        <span >
-                            {{User.apartament_number}}
-                        </span>
+                        </span>                      
                     </div>
+                </mat-card-header>
             </mat-card>
         </div>
-
     </div>
+
