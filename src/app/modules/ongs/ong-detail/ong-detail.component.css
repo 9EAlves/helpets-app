@@ -1,0 +1,23 @@
+
+.content{
+    padding: 10px;
+}
+
+.userCover{
+    height: 400px;
+    max-width: 400px;
+}
+
+.ongImage{
+    background-size: cover;
+}
+
+.ongName{
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: -20px;
+}
+
+.account{
+    margin-top: 10px;
+}

@@ -10,6 +10,7 @@ import { OngComponent } from './ong/ong.component';
 import { OngCardComponent } from './ong-card/ong-card.component';
 import { OngDetailComponent } from './ong-detail/ong-detail.component';
 
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { OngDetailComponent } from './ong-detail/ong-detail.component';
     OngsRoutingModule,
     MatCardModule,
     FlexLayoutModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class OngsModule { }
