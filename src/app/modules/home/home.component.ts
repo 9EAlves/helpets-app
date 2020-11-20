@@ -5,11 +5,11 @@ import { DisappearedService} from './../../core/services/disappeared.service'
 
 
 @Component({
-  selector: 'app-disappeared',
-  templateUrl: './disappeared.component.html',
-  styleUrls: ['./disappeared.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class DisappearedComponent implements OnInit, OnDestroy{
+export class HomeComponent implements OnInit, OnDestroy{
 
   private HttpRequest: Subscription
   Disappeared: Disappeared[]
@@ -28,7 +28,7 @@ export class DisappearedComponent implements OnInit, OnDestroy{
     this.HttpRequest = this.disappearedService.findAllDisappeared().subscribe(response => {
       /** Sucesso da requisição */
       this.Disappeared = response.body['data']
-     // console.log(response)
+     console.log(response)
     }, err =>{
       /** Erro da requisição */
       console.log(err)
