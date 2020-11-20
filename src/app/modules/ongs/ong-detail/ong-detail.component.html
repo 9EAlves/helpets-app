@@ -22,7 +22,7 @@
             <div class="account">
                 <mat-card class="mat-elevation-z3">
                     <mat-card-header>
-                        <div class="row" *ngIf="User.bank_account|| User.paypal_account">
+                        <div class="row" *ngIf="User.bank_account || User.paypal_account">
                             <span>
                                 Informações bancarias para recebimento de doaçoes:
                             </span>
@@ -46,42 +46,42 @@
         <div fxFlex="50%" fxFlex.gt-sm="75%">
             <mat-card class="mat-elevation-z3">
                 <mat-card-header>
-                    <div class="row" *ngIf="User.landline || User.cell_phone || User.instagram || User.facebook || User.street || User.number || User.city">
+                    <div class="row" *ngIf="User.contact.landline || User.contact.cell_phone || User.contact.instagram || User.contact.facebook || User.address.street || User.address.number || User.address.city">
                         <span class="">
-                            Entre em contato atraves:
+                            Entre em contato atraves dos seguintes numero, ou pelas redes sociais disponiveis:
                         </span>
                         <br /><br />
-                        <span *ngIf="User.landline">
+                        <span *ngIf="User.contact.landline">
                             <mat-icon>phone</mat-icon>
-                            {{User.landline}}
+                            {{User.contact.landline}}
                         </span>
                         <br />
-                        <span *ngIf="User.cell_phone">
+                        <span *ngIf="User.contact.cell_phone">
                             <mat-icon>phone_android</mat-icon>
-                            {{User.cell_phone}}
+                            {{User.contact.cell_phone}}
                         </span>
                         <br />
-                        <span *ngIf="User.instagram">
+                        <span *ngIf="User.contact.instagram">
                             <mat-icon>phonelink</mat-icon>
-                            {{User.instagram}}
+                            {{User.contact.instagram}}
                         </span>
                         <br />
-                        <span *ngIf="User.facebook">
+                        <span *ngIf="User.contact.facebook">
                             <mat-icon>phonelink</mat-icon>
-                            {{User.facebook}}
+                            {{User.contact.facebook}}
                         </span>
                         <br />
-                        <span *ngIf="User.street">
+                        <span *ngIf="User.address.street">
                             <mat-icon>home</mat-icon>
-                            {{User.street}}
+                            {{User.address.street}}
                         </span>
                         &nbsp;
-                        <span *ngIf="User.number">
-                            {{User.number}}
+                        <span *ngIf="User.address.number">
+                            {{User.address.number}}
                         </span>
                         &nbsp;
-                        <span *ngIf="User.city">
-                            {{User.city}}
+                        <span *ngIf="User.address.city">
+                            {{User.address.city}}
                         </span>                      
                     </div>
                 </mat-card-header>

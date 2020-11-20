@@ -31,6 +31,7 @@ export class OngDetailComponent implements OnInit, OnDestroy {
   findOngById(userId: String): void {
     this.httpRequest = this.userService.findOngById(userId).subscribe(response =>{
         this.User = response.body['data']
+        console.log(response)
     },err => {
         console.log(err)
     })
