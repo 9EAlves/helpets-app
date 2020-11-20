@@ -37,7 +37,7 @@
     <h2>Desaparecidos recentemente</h2>
     <br>
     <div   class="card-disappearead" *ngFor="let disappeared of Disappeared">
-        <div *ngIf="Disappeared">
+        <div *ngIf="disappeared.rated">
             <img class="image-pet" mat-card-image [src]="disappeared.image" alt="Photo of a {{disappeared.pet_name}}">
             <h2>{{disappeared.pet_name}}</h2>
             <h4 *ngIf="disappeared.user.address.neighborhood">{{disappeared.user.address.neighborhood}}</h4>
