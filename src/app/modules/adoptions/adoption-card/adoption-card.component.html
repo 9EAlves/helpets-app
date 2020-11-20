@@ -1,0 +1,17 @@
+<mat-card [routerLink]="['/adoptions/detail', Adoption._id]" class="routerLink">
+  <mat-card-title *ngIf="Adoption.pet_name">{{Adoption.pet_name}}</mat-card-title>
+  <div class="row">
+    <mat-card-subtitle>{{Adoption.species}}</mat-card-subtitle>
+    <mat-card-subtitle>{{Adoption.gender}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="Adoption.data_nascimento">Nascidos:
+      {{Adoption.data_nascimento | date: 'dd/MM/yyyy':"UTC"}}
+    </mat-card-subtitle>
+  </div>
+  <img mat-card-image [src]="Adoption.image" alt="Photo of a {{Adoption.pet_name}}">
+  <mat-card-content>
+    <p>
+      {{sliceDescription(Adoption.description)}}
+
+    </p>
+  </mat-card-content>
+</mat-card>
