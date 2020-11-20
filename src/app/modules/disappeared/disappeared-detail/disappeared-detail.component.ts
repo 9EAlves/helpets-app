@@ -31,7 +31,7 @@ export class DisappearedDetailComponent implements OnInit {
   findDisappearedById(disappearedId: String): void{
     this.HttpRequest = this.disappearedService.findDisappearedId(disappearedId).subscribe(response =>{
      this.Disappeared = response.body['data']
-      console.log(response.body['data'])
+     // console.log(response.body['data'])
     }, err =>{
       console.log(err)
     })
