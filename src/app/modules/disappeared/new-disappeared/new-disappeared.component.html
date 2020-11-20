@@ -1,0 +1,82 @@
+<div class="content">
+    <h2 mat-dialog-title>Publicar desaparecido</h2>
+    <mat-horizontal-stepper linear="true" #stepper>
+<!-- 1  -->
+      <mat-step  [stepControl]="_disappearedFormGroup" editable="false">
+        <form [formGroup]="_disappearedFormGroup" class="form">
+          <mat-form-field class="form-element">
+            <mat-label>Nome do animal</mat-label>
+            <input matInput formControlName="pet_name" placeholder="Nome">
+          </mat-form-field>
+          <mat-form-field class="form-element">
+            <mat-label>Selecione a espécie do animal</mat-label>
+            <mat-select formControlName="species" >
+              <mat-option *ngFor="let specie of _species" [value]="specie.name">{{specie.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="form-element">
+            <mat-label>Gênero do animal</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option [value]="'macho'">Fêmea</mat-option>
+              <mat-option [value]="'femea'">Macho</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+        <div class="form-element">
+          <button class="button" color="primary" mat-button matStepperNext (click)="teste()">Próximo</button>
+        </div>
+      </mat-step>
+
+       <mat-step [stepControl]="_disappearedFormGroup" editable="false">
+        <form [formGroup]="_disappearedFormGroup" class="form">
+          <mat-form-field class="form-element">
+            <mat-label>Encontrado / Desaparecido</mat-label>
+            <mat-select formControlName="publication_type">
+              <mat-option [value]="'#Encontrado'">Encontrado</mat-option>
+              <mat-option [value]="'#Desaparecido'">Desaparecido</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="form-element">
+            <mat-label>Data de desaparecimento/encontro</mat-label>
+            <input matInput type="date" formControlName="event_date">
+          </mat-form-field>
+        </form>
+        <div class="form-element">
+          <button class="button" color="primary" mat-button matStepperNext>Próximo</button>
+        </div>
+      </mat-step>
+  
+   
+      <mat-step  [stepControl]="_disappearedFormGroup" editable="false">
+        <form [formGroup]="_disappearedFormGroup" class="form">
+          <mat-form-field class="form-element">
+            <mat-label>Descrição</mat-label>
+            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" formControlName="description"
+              placeholder="Descrição" ></textarea>
+          </mat-form-field>
+        </form>
+        <div class="form-element">
+          <button class="button" color="primary" mat-button matStepperNext
+            [disabled]="_disappearedFormGroup.invalid" (click)="clearField()">Próximo</button>
+        </div>
+      </mat-step>
+
+      <mat-step  [stepControl]="_disappearedFormGroup" editable="false">
+        <form [formGroup]="_disappearedFormGroup" class="form">
+          <mat-form-field class="form-element">
+            <mat-label>Imagem</mat-label>
+            <input matInput formControlName="image" placeholder="Link da imagem do animal" >
+          </mat-form-field>
+        </form>
+        <div class="form-element">
+          <button class="button" color="primary" mat-button (click)="createNewDisappeared(_disappearedFormGroup)"
+            matStepperNext [disabled]="_disappearedFormGroup.invalid">Cadastrar</button>
+        </div>
+      </mat-step> 
+    
+      
+    </mat-horizontal-stepper>
+    <div class="form-element">
+      <button mat-button class="button" color="warn" (click)="closeForm()">Fechar</button>
+    </div>
+  </div>

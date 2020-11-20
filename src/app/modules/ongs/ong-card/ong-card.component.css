@@ -1,0 +1,19 @@
+.userOng-image {
+  height: 300px;
+}
+
+.content>mat-card {
+  width: 200px;
+}
+
+.routerLinkOng{
+  cursor: pointer;
+}
+
+.routerLinkOng:hover{
+  text-decoration: underline;
+}
+
+
+
+

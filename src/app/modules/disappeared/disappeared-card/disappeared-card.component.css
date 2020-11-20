@@ -1,0 +1,19 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+
+  .content {
+    padding: 16px
+  }
+
+  .routerLinkDisappeared {
+    cursor: pointer;
+    transition: transform .2s;
+  }
+
+  .routerLinkDisappeared:hover{
+    transform: scale(1.03);
+  }
+  

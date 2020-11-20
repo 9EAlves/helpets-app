@@ -22,7 +22,25 @@ const routes: Routes = [
   {
     path: 'disappeared',
     loadChildren: () => import('./modules/disappeared/disappeared.module').then(module => module.DisappearedModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./modules/home/home.module').then(module => module.HomeModule)
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'ong',
+    loadChildren: () => import('./modules/ongs/ongs.module').then(module => module.OngsModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./modules/about-us/about-us.module').then(module => module.AboutUsModule)
   }
+
 ];
 
 @NgModule({
