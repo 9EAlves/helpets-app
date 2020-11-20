@@ -28,11 +28,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/home/home.module').then(module => module.HomeModule)
   },
   {
-      path: '',
-      redirectTo: '/home',
-      pathMatch: 'full'
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
   }
-  
+
 ];
 
 @NgModule({
