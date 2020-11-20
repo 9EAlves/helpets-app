@@ -7,6 +7,7 @@ import { DisappearedComponent } from "./disappeared.component";
 
 import { NewDisappearedComponent } from './new-disappeared/new-disappeared.component';
 
+
 const routes: Routes = [
   {
     path: '',
