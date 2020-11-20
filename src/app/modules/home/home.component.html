@@ -1,0 +1,47 @@
+<div>
+        <div class="slider">
+            
+        <div class="slides">
+            <div id="slide-1">
+                <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+            </div>
+        <div id="slide-2">  
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80" />
+        </div>
+        <div id="slide-3">
+            <img src="https://images.unsplash.com/photo-1540653767498-cd679b1faa23?ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80" />	
+        </div>
+
+        </div>
+    </div>
+    
+    <div class="buttons" >
+        <div>
+            <button mat-fab class="button-adoption" [routerLink]="'/adoptions'" > </button>
+                <p>Adoções</p>
+            </div>
+        <div>
+            <button mat-fab class="button-disappeared" [routerLink]="'/disappeared'"> </button>
+            <p>Desaparecidos</p>
+        </div>
+        <div>
+            <button mat-fab class="button-ongs" > </button>
+            <p>ONGs</p>
+        </div>
+        <div>
+            <button mat-fab class="button-about" > </button>
+            <p>Sobre nós</p>
+        </div>
+    </div>
+
+    <h2>Desaparecidos recentemente</h2>
+    <br>
+    <div   class="card-disappearead" *ngFor="let disappeared of Disappeared">
+        <div *ngIf="Disappeared">
+            <img class="image-pet" mat-card-image [src]="disappeared.image" alt="Photo of a {{disappeared.pet_name}}">
+            <h2>{{disappeared.pet_name}}</h2>
+            <h4 *ngIf="disappeared.user.address.neighborhood">{{disappeared.user.address.neighborhood}}</h4>
+        </div>
+    </div>
+</div>
+  
