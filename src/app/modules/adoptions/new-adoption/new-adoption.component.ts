@@ -1,9 +1,8 @@
-import { Component, OnInit, OnDestroy, ViewChild, Input } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { Subscription } from 'rxjs';
-import { Adoption } from './../../../core/models/adoption.model'
 import { AdoptionsService } from './../../../core/services/adoptions.service'
 import { Specie } from './../../../core/models/species.model'
 import { SpeciesService } from './../../../core/services/species.service'
@@ -17,7 +16,6 @@ export class NewAdoptionComponent implements OnInit, OnDestroy {
 
   private httpRequest: Subscription
 
-  _adoptionControl: FormControl
   _adoptionFormGroup: FormGroup
   _adoptionIndividualFormGroup: FormGroup
   _adoptionCriaFormGroup: FormGroup
@@ -68,7 +66,8 @@ export class NewAdoptionComponent implements OnInit, OnDestroy {
       maturity: this._builder.control(null),
       castred: this._builder.control(null),
       description: this._builder.control(null, [Validators.required]),
-      image: this._builder.control('.', [Validators.required])
+      image: this._builder.control('.', [Validators.required]),
+      rated: this._builder.control(true),
     })
   }
 
@@ -87,10 +86,10 @@ export class NewAdoptionComponent implements OnInit, OnDestroy {
   createNewAdoption(form: FormGroup): void {
     this.httpRequest = this._adoptionsService.createAdoption(form.value).subscribe(response => {
       console.log(`Sua publicação foi cadastrada com sucesso`)
-      this._router.navigate(['/adoptions'])
+      this.closeForm()
     }, err => {
       console.log(form.value)
-      this._router.navigate(['/adoptions'])
+      this.closeForm()
     })
   }
 
@@ -113,14 +112,4 @@ export class NewAdoptionComponent implements OnInit, OnDestroy {
   closeForm(): void {
     this._router.navigate(['/adoptions'])
   }
-
-  get publication_type() { return this._adoptionFormGroup.get('publication_type') } /*ok*/
-  get pet_name() { return this._adoptionFormGroup.get('pet_name') } /*ok*/
-  get species() { return this._adoptionFormGroup.get('species') } /*ok*/
-  get gender() { return this._adoptionFormGroup.get('gender') } /*ok*/
-  get maturity() { return this._adoptionFormGroup.get('maturity') }
-  get castred() { return this._adoptionFormGroup.get('castred') }
-  get quantity() { return this._adoptionFormGroup.get('quantity') }
-  get description() { return this._adoptionFormGroup.get('description') }
-
 }
