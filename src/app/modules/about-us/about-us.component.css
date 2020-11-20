@@ -1,0 +1,38 @@
+.user{
+    background-color: rgb(247,247,247);
+    max-width: 600px;
+    padding: 35px;
+    margin: auto;
+    margin-bottom: 35px;
+    border-radius: 10px 20px;
+    box-shadow: 1px 1px 5px rgb(153, 153, 153);
+}
+
+.users-content{
+    text-align: center;
+}
+
+.users-content a{
+    margin-bottom: 15px;
+}
+
+.users-content hr{
+    border: 1px dashed rgb(212, 212, 212);
+}
+
+.img {
+    width: 100px;
+    height: 85px;
+  }
+
+  .size-icon {
+    transform: scale(1.8);
+  }
+
+.mat-h1{
+    font-size: xxx-large;
+  }
+
+.users-content p{
+    text-align: justify;
+}

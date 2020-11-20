@@ -12,6 +12,7 @@ import { UsersModule } from './modules/users/users.module';
 import { NavigationModule } from './modules/navigation/navigation.module';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from './app.component';
+import { AboutUsComponent } from './modules/about-us/about-us.component';
 
 
 
@@ -19,7 +20,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
