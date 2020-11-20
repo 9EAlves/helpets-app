@@ -16,13 +16,24 @@ export class AdoptionsComponent implements OnInit {
 
   private httpRequest: Subscription
   Adoptions: Adoption[]
+  hasError: boolean = false
 
   constructor(
     private dialog: MatDialog,
-    private route: Router
+    private route: Router,
+    private _adoptionsService: AdoptionsService
   ) { }
 
   ngOnInit(): void {
+    this.findAllAdoptions()
+  }
+
+  findAllAdoptions(): void {
+    this.httpRequest = this._adoptionsService.findAllAdoptions().subscribe(response => {
+      this.Adoptions = response.body['data']
+    }, err => {
+      this.hasError = true
+    })
   }
 
 }

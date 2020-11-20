@@ -1,3 +1,6 @@
+<h2>Adoções</h2>
+<mat-divider></mat-divider>
+<br>
 <div class="row">
   <div class="select">
     <mat-form-field style="width: 100%;" appearance="fill">
@@ -11,4 +14,7 @@
   <button mat-mini-fab class="button" aria-label="Publicar adoção" [routerLink]="['/adoptions/create']">
     <mat-icon>add</mat-icon>
   </button>
+</div>
+<div class="row" *ngFor="let adoption of Adoptions">
+  <app-adoption-card *ngIf="adoption.rated" [Adoption]="adoption"></app-adoption-card>
 </div>
