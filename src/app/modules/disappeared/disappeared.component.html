@@ -1,23 +1,28 @@
-
+      
     <h2>Desaparecidos</h2>
     <mat-divider></mat-divider>
   <br>
   <app-loading *ngIf="!Disappeared"></app-loading>
-  <div *ngIf="Disappeared">  
-  <mat-form-field style="width: 100%;"appearance="fill">
-        <mat-label>Select an option</mat-label>
-        <mat-select disableRipple value="1">
-          <mat-option value="1">Mais recente</mat-option>
-          <mat-option value="2">Mais antigo</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <div fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
-        <button mat-flat-button color="primary"></button>
+      <div class="row">
+        <div class="select"  *ngIf="Disappeared">
+          <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Filtrar por</mat-label>
+            <mat-select disableRipple value="1">
+              <mat-option value="1">Mais recente</mat-option>
+              <mat-option value="2">Mais antigo</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <button mat-mini-fab class="button" aria-label="Publicar desaparecido" [routerLink]="['/disappeared/create']">
+          <mat-icon>add</mat-icon>
+        </button>
       </div>
+      
        
       <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
         <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="13%"  *ngFor="let disappeared of Disappeared">
-          <app-disappeared-card [Disappeared]="disappeared"></app-disappeared-card>
+          <app-disappeared-card *ngIf="disappeared.rated" [Disappeared]="disappeared"></app-disappeared-card>
+          <br>
         </div>
       </div>
-    </div> 
+   
