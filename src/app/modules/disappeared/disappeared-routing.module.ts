@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DisappearedDetailComponent } from './disappeared-detail/disappeared-detail.component';
 
+
 import { DisappearedComponent } from "./disappeared.component";
 
 import { NewDisappearedComponent } from './new-disappeared/new-disappeared.component';
