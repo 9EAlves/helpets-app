@@ -1,0 +1,122 @@
+/* * {
+    box-sizing: border-box;
+  }
+   */
+  .slider {
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+    
+    
+  }
+  
+  .slides {
+    display: flex;
+    
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    
+    
+    
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    
+    /*
+    scroll-snap-points-x: repeat(300px);
+    scroll-snap-type: mandatory;
+    */
+  }
+  .slides >div::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+  .slides>div::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+  }
+  .slides>div::-webkit-scrollbar-track {
+  background: transparent; 
+  }
+  .slides > div {
+
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 300px;
+    height: 150px;
+    margin-right: 10px;
+    border-radius: 50px;
+    background: #eee;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    
+
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+  }
+  .slides > div:target {
+    transform: scale(0.8); 
+  }
+
+  img {
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  
+  .slider > a {
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 0 0.5rem 0;
+    position: relative;
+  }
+
+  .buttons{
+    margin-top:20px;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+    margin-bottom: 50px;
+      
+  }
+  .button-adoption{
+    background: #ff8d29 linear-gradient(-225deg,#ffc152,#ff8d29);
+    box-shadow: 0 2px 4px 0 rgba(255,141,41,.24);
+  }
+  .button-disappeared{
+    background: #1bc894 linear-gradient(-225deg,#57dbc0,#1bc894);
+    box-shadow: 0 2px 4px 0 rgba(57,204,160,.24);
+  }
+  .button-ongs{
+    background: #f53165 linear-gradient(-225deg,#fb5f9e,#f53165);
+    box-shadow: 0 2px 4px 0 rgba(245,49,101,.24);
+  }
+  .button-about{
+    background: #3b66f5 linear-gradient(-225deg,#6da0fb,#3b66f5);
+    box-shadow: 0 2px 4px 0 rgba(59,102,245,.24);
+  }
+  
+  .card-disappearead {
+    margin-top:10px;
+    
+    display:flex;
+  
+  }
+
+  .image-pet {
+    width: 100px;
+    height: 180px;
+  }

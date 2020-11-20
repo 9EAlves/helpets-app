@@ -1,6 +1,7 @@
 <mat-toolbar class="toolbar">
   <mat-toolbar-row>
-    <img src="./../../../assets/icons/helpets_icon.svg" class="img">
+    <a [routerLink]="'/home'"><img src="./../../../assets/icons/helpets_icon.svg" class="img"></a>
+    
     <span class="menu-spacer"></span>
     <button mat-icon-button>
       <mat-icon class="size-icon" [routerLink]="'/users'">account_circle</mat-icon>

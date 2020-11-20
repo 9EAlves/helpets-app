@@ -22,7 +22,17 @@ const routes: Routes = [
   {
     path: 'disappeared',
     loadChildren: () => import('./modules/disappeared/disappeared.module').then(module => module.DisappearedModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./modules/home/home.module').then(module => module.HomeModule)
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
   }
+
 ];
 
 @NgModule({
