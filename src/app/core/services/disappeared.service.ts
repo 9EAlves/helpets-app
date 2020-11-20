@@ -11,6 +11,9 @@ export class DisappearedService {
 
   constructor (private http: HttpClient) { }
 
+  createDisappeared(body: Disappeared): Observable<HttpResponse<Disappeared>> {
+    return this.http.post<Disappeared>(`${API_URL}/disappeared/create`, body, { observe: 'response' })
+  }
   findAllDisappeared(): Observable<HttpResponse<Disappeared[]>>{
     return this.http.get<Disappeared[]>(`${API_URL}/disappeared/viewAll`, {observe:'response'})
   }
