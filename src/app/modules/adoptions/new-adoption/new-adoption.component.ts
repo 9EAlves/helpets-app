@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, OnDestroy, ViewChild, Input } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { Subscription } from 'rxjs';
 import { Adoption } from './../../../core/models/adoption.model'
@@ -16,7 +17,10 @@ export class NewAdoptionComponent implements OnInit, OnDestroy {
 
   private httpRequest: Subscription
 
+  _adoptionControl: FormControl
   _adoptionFormGroup: FormGroup
+  _adoptionIndividualFormGroup: FormGroup
+  _adoptionCriaFormGroup: FormGroup
   _isNewCria: boolean = false
   _species: Specie[]
 
@@ -24,12 +28,16 @@ export class NewAdoptionComponent implements OnInit, OnDestroy {
 
   constructor(
     private _speciesService: SpeciesService,
-    private _builder: FormBuilder
+    private _adoptionsService: AdoptionsService,
+    private _builder: FormBuilder,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
     this.findAllSpecies()
     this.initializeAdoptionFormGroup()
+    this.initializeAdoptionIndividualFormGroup()
+    this.initializeAdoptionCriaFormGroup()
   }
 
   ngOnDestroy(): void {
@@ -47,30 +55,63 @@ export class NewAdoptionComponent implements OnInit, OnDestroy {
   initializeAdoptionFormGroup(): void {
     this._adoptionFormGroup = this._builder.group({
       publication_type: this._builder.control(null),
-      pet_name: this._builder.control(null),
-      species: this._builder.control(null),
-      gender: this._builder.control(null),
-      maturity: this._builder.control(null),
-      castred: this._builder.control(null),
-      quantity: this._builder.control(null),
-      description: this._builder.control(null)
+      species: this._builder.control(null)
     })
   }
 
-  createNewAdoption(): void {
-
+  initializeAdoptionIndividualFormGroup(): void {
+    this._adoptionIndividualFormGroup = this._builder.group({
+      publication_type: this._builder.control(null),
+      species: this._builder.control(null),
+      pet_name: this._builder.control(null),
+      gender: this._builder.control(null),
+      maturity: this._builder.control(null),
+      castred: this._builder.control(null),
+      description: this._builder.control(null, [Validators.required]),
+      image: this._builder.control('.', [Validators.required])
+    })
   }
 
+  initializeAdoptionCriaFormGroup(): void {
+    this._adoptionCriaFormGroup = this._builder.group({
+      publication_type: this._builder.control(null),
+      species: this._builder.control(null),
+      quantity_male: this._builder.control(null),
+      quantity_female: this._builder.control(null),
+      data_nascimento: this._builder.control(null),
+      description: this._builder.control(null, [Validators.required]),
+      image: this._builder.control('.', [Validators.required])
+    })
+  }
 
-  nextStep(): void {
+  createNewAdoption(form: FormGroup): void {
+    this.httpRequest = this._adoptionsService.createAdoption(form.value).subscribe(response => {
+      console.log(`Sua publicação foi cadastrada com sucesso`)
+      this._router.navigate(['/adoptions'])
+    }, err => {
+      console.log(form.value)
+      this._router.navigate(['/adoptions'])
+    })
+  }
+
+  initForm(): void {
     if (this._adoptionFormGroup.value['publication_type'] == 'cria') {
       this._isNewCria = true
+      this._adoptionCriaFormGroup.controls['publication_type'].setValue(this._adoptionFormGroup.value['publication_type'])
+      this._adoptionCriaFormGroup.controls['species'].setValue(this._adoptionFormGroup.value['species'])
+    } else {
+      this._adoptionIndividualFormGroup.controls['publication_type'].setValue(this._adoptionFormGroup.value['publication_type'])
+      this._adoptionIndividualFormGroup.controls['species'].setValue(this._adoptionFormGroup.value['species'])
     }
-    console.log(this._isNewCria)
+  }
+
+  clearField(): void {
+    this._adoptionIndividualFormGroup.controls['image'].setValue('')
+    this._adoptionCriaFormGroup.controls['image'].setValue('')
   }
 
   closeForm(): void {
-
+    this._router.navigate(['/adoptions'])
   }
 
   get publication_type() { return this._adoptionFormGroup.get('publication_type') } /*ok*/

@@ -1,38 +1,34 @@
 <div class="content">
-  <h2 mat-dialog-title>Publicar doação</h2>
+  <h2 mat-dialog-title>Publicar adoção</h2>
   <mat-horizontal-stepper linear="true" #stepper>
     <mat-step [stepControl]="_adoptionFormGroup" editable="false">
       <form [formGroup]="_adoptionFormGroup" class="form">
         <mat-form-field class="form-element">
-          <mat-label>Selecione o tipo de doação</mat-label>
+          <mat-label>Selecione o tipo de adoção</mat-label>
           <mat-select formControlName="publication_type" required>
-            <mat-option [value]="'individual'">Doação individual</mat-option>
-            <mat-option [value]="'cria'">Doação de ninhada</mat-option>
+            <mat-option [value]="'individual'">Adoção individual</mat-option>
+            <mat-option [value]="'cria'">Adoção de ninhada</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field class="form-element">
           <mat-label>Selecione a espécie do animal</mat-label>
           <mat-select formControlName="species" required>
-            <mat-option *ngFor="let specie of _species" [value]="species">{{specie.name}}</mat-option>
+            <mat-option *ngFor="let specie of _species" [value]="specie.name">{{specie.name}}</mat-option>
           </mat-select>
         </mat-form-field>
       </form>
       <div class="form-element">
-        <button class="button" color="primary" mat-button (click)="nextStep()" matStepperNext
+        <button class="button" color="primary" mat-button matStepperNext (click)="initForm()"
           [disabled]="_adoptionFormGroup.invalid">Próximo</button>
       </div>
-    </mat-step>
-    <mat-step [stepControl]="_adoptionFormGroup" editable="false">
-      <form [formGroup]="_adoptionFormGroup" class="form">
-        <mat-form-field *ngIf="!_isNewCria" class="form-element">
+    </mat-step><!-- COMEÇO INDIVIDUAL-->
+    <mat-step *ngIf="!_isNewCria" [stepControl]="_adoptionFormGroup" editable="false">
+      <form [formGroup]="_adoptionIndividualFormGroup" class="form">
+        <mat-form-field class="form-element">
           <mat-label>Nome do animal</mat-label>
           <input matInput formControlName="pet_name" placeholder="Nome">
         </mat-form-field>
-        <mat-form-field *ngIf="_isNewCria" class="form-element">
-          <mat-label>Quantidade de animais disponíveis</mat-label>
-          <input matInput formControlName="quantity" placeholder="Nome" required>
-        </mat-form-field>
-        <mat-form-field *ngIf="!_isNewCria" class="form-element">
+        <mat-form-field class="form-element">
           <mat-label>Gênero do animal</mat-label>
           <mat-select formControlName="gender">
             <mat-option [value]="'macho'">Fêmea</mat-option>
@@ -41,20 +37,106 @@
         </mat-form-field>
       </form>
       <div class="form-element">
-        <button class="button" color="primary" mat-button (click)="nextStep()" matStepperNext>Próximo</button>
+        <button class="button" color="primary" mat-button matStepperNext>Próximo</button>
       </div>
     </mat-step>
-    <mat-step [stepControl]="_adoptionFormGroup" editable="false">
-      <form [formGroup]="_adoptionFormGroup" class="form">
+    <mat-step *ngIf="!_isNewCria" [stepControl]="_adoptionFormGroup" editable="false">
+      <form [formGroup]="_adoptionIndividualFormGroup" class="form">
         <mat-form-field class="form-element">
-          <mat-label>Descrição</mat-label>
-          <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" formControlName="description"
-            placeholder="Descrição"></textarea>
+          <mat-label>Maturidade</mat-label>
+          <mat-select formControlName="maturity">
+            <mat-option [value]="'filhote'">Filhote</mat-option>
+            <mat-option [value]="'jovem'">Jovem</mat-option>
+            <mat-option [value]="'adulto'">Adulto</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-element">
+          <mat-label>Castrado</mat-label>
+          <mat-select formControlName="castred">
+            <mat-option [value]="'true'">Sim</mat-option>
+            <mat-option [value]="'false'">Não</mat-option>
+          </mat-select>
         </mat-form-field>
       </form>
       <div class="form-element">
-        <button mat-button class="button" color="primary" [disabled]="_adoptionFormGroup.invalid"
-          (click)="createNewAdoption()">Adicionar curso</button>
+        <button class="button" color="primary" mat-button matStepperNext>Próximo</button>
+      </div>
+    </mat-step>
+    <mat-step *ngIf="!_isNewCria" [stepControl]="_adoptionFormGroup" editable="false">
+      <form [formGroup]="_adoptionIndividualFormGroup" class="form">
+        <mat-form-field class="form-element">
+          <mat-label>Descrição</mat-label>
+          <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" formControlName="description"
+            placeholder="Descrição" required></textarea>
+        </mat-form-field>
+      </form>
+      <div class="form-element">
+        <button class="button" color="primary" mat-button matStepperNext
+          [disabled]="_adoptionIndividualFormGroup.invalid" (click)="clearField()">Próximo</button>
+      </div>
+    </mat-step>
+    <mat-step *ngIf="!_isNewCria" [stepControl]="_adoptionFormGroup" editable="false">
+      <form [formGroup]="_adoptionIndividualFormGroup" class="form">
+        <mat-form-field class="form-element">
+          <mat-label>Imagem</mat-label>
+          <input matInput formControlName="image" placeholder="Link da imagem do animal" required>
+        </mat-form-field>
+      </form>
+      <div class="form-element">
+        <button class="button" color="primary" mat-button (click)="createNewAdoption(_adoptionIndividualFormGroup)"
+          matStepperNext [disabled]="_adoptionIndividualFormGroup.invalid">Cadastrar</button>
+      </div>
+    </mat-step> <!-- FIM INDIVIDUAL-->
+    <!-- COMEÇO CRIA-->
+    <mat-step *ngIf="_isNewCria" [stepControl]="_adoptionFormGroup" editable="false">
+      <form [formGroup]="_adoptionCriaFormGroup" class="form">
+        <mat-form-field class="form-element">
+          <mat-label>Quantidade de machos</mat-label>
+          <input matInput formControlName="quantity_male" placeholder="Quantidade de Machos">
+        </mat-form-field>
+        <mat-form-field class="form-element">
+          <mat-label>Quantidade de fêmeas</mat-label>
+          <input matInput formControlName="quantity_female" placeholder="Quantidade de Machos">
+        </mat-form-field>
+      </form>
+      <div class="form-element">
+        <button mat-button class="button" color="primary" matStepperNext>Próximo</button>
+      </div>
+    </mat-step>
+    <mat-step *ngIf="_isNewCria" [stepControl]="_adoptionFormGroup" editable="false">
+      <form [formGroup]="_adoptionCriaFormGroup" class="form">
+        <mat-form-field class="form-element">
+          <mat-label>Nascimento da cria</mat-label>
+          <input matInput type="date" formControlName="data_nascimento" placeholder="Quantidade de Machos">
+        </mat-form-field>
+      </form>
+      <div class="form-element">
+        <button mat-button class="button" color="primary" matStepperNext>Próximo</button>
+      </div>
+    </mat-step>
+    <mat-step *ngIf="_isNewCria" [stepControl]="_adoptionFormGroup" editable="false">
+      <form [formGroup]="_adoptionCriaFormGroup" class="form">
+        <mat-form-field class="form-element">
+          <mat-label>Descrição</mat-label>
+          <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" formControlName="description"
+            placeholder="Descrição" required></textarea>
+        </mat-form-field>
+      </form>
+      <div class="form-element">
+        <button mat-button class="button" color="primary" [disabled]="_adoptionCriaFormGroup.invalid" matStepperNext
+          (click)="clearField()">Próximo</button>
+      </div>
+    </mat-step>
+    <mat-step *ngIf="_isNewCria" [stepControl]="_adoptionFormGroup" editable="false">
+      <form [formGroup]="_adoptionCriaFormGroup" class="form">
+        <mat-form-field class="form-element">
+          <mat-label>Imagem</mat-label>
+          <input matInput formControlName="image" placeholder="Link da imagem da cria" required>
+        </mat-form-field>
+      </form>
+      <div class="form-element">
+        <button class="button" color="primary" mat-button (click)="createNewAdoption(_adoptionCriaFormGroup)"
+          [disabled]="_adoptionCriaFormGroup.invalid">Cadastrar</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
