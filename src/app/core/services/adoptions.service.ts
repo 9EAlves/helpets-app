@@ -24,4 +24,12 @@ export class AdoptionsService {
   findAdoptionById(adoptionId: String): Observable<HttpResponse<Adoption>> {
     return this.http.get<Adoption>(`${API_URL}/adoption/viewOne/${adoptionId}`, { observe: 'response' })
   }
+
+  updateAdoptionById(adoptionId: String, body: null): Observable<HttpResponse<Adoption>> {
+    return this.http.put<Adoption>(`${API_URL}/adoption/update/${adoptionId}`, body, { observe: 'response' })
+   }
+   deleteAdoptionById(adoptionId: String): Observable<HttpResponse<Adoption>> {
+     return this.http.delete<Adoption>(`${API_URL}/adoption/delete/${adoptionId}`, { observe: 'response' })
+   }
+ 
 }

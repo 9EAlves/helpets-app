@@ -8,11 +8,15 @@
     </button>
   </mat-toolbar-row>
   <mat-toolbar-row>
-    <div class="menu-elements">
+    <div class="menu-elements" *ngIf="!_router.url.includes('admin')">
       <a mat-button [routerLink]="'/adoptions'">Adoções</a>
       <a mat-button [routerLink]="'/disappeared'">Desaparecidos</a>
       <a mat-button [routerLink]="'/ong'">Ongs</a>
       <a mat-button [routerLink]="'/about'">Sobre</a>
+    </div>
+    <div class="menu-elements" *ngIf="_router.url.includes('admin')">
+      <a mat-button class="menu-elements" [routerLink]="'/admin/adoptions'">Adoções</a>
+      <a mat-button class="menu-elements" [routerLink]="'/admin/disappeared'">Desaparecidos</a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

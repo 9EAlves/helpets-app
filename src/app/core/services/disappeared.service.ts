@@ -22,4 +22,11 @@ export class DisappearedService {
     return this.http.get<Disappeared>(`${API_URL}/disappeared/viewOne/${disappearedId}`, { observe: 'response' })
   }
 
+  updateDisappearedById(disappearedId: String, body: null): Observable<HttpResponse<Disappeared>> {
+   return this.http.put<Disappeared>(`${API_URL}/disappeared/update/${disappearedId}`, body, { observe: 'response' })
+  }
+  deleteDisappearedById(disappearedId: String): Observable<HttpResponse<Disappeared>> {
+    return this.http.delete<Disappeared>(`${API_URL}/disappeared/delete/${disappearedId}`, { observe: 'response' })
+  }
+
 }
