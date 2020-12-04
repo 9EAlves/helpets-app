@@ -19,12 +19,13 @@ export class AdoptionsComponent implements OnInit {
   hasError: boolean = false
 
   constructor(
-    private dialog: MatDialog,
-    private route: Router,
     private _adoptionsService: AdoptionsService
   ) { }
 
   ngOnInit(): void {
+    this._adoptionsService.params = this._adoptionsService.params.set('columnSort', 'createdAt')
+    this._adoptionsService.params = this._adoptionsService.params.set('valueSort', 'descending')
+
     this.findAllAdoptions()
   }
 

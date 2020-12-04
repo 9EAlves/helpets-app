@@ -17,6 +17,9 @@ export class DisappearedComponent implements OnInit, OnDestroy {
   constructor(private disappearedService: DisappearedService) { }
 
   ngOnInit(): void {
+    this.disappearedService.params = this.disappearedService.params.set('columnSort', 'createdAt')
+    this.disappearedService.params = this.disappearedService.params.set('valueSort', 'descending')
+
     this.findAllDisappeared()
   }
 
