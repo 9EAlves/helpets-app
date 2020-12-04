@@ -19,6 +19,8 @@ export class OngComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.UserService.params = this.UserService.params.set('columnSort', 'name')
+
     this.findAllUser()
   }
 
@@ -27,7 +29,7 @@ export class OngComponent implements OnInit, OnDestroy {
   }
 
   findAllUser(): void {
-    this.httpRequest =  this.UserService.findAllUser().subscribe(response => {
+    this.httpRequest = this.UserService.findAllUser().subscribe(response => {
       this.User = response.body['data']
     }, err => {
       console.log(err)

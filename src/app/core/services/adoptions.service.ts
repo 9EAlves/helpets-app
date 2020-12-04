@@ -13,15 +13,18 @@ export class AdoptionsService {
     private http: HttpClient
   ) { }
 
+  params = new HttpParams()
+  deleteParams = new HttpParams()
+
   createAdoption(body: Adoption): Observable<HttpResponse<Adoption>> {
-    return this.http.post<Adoption>(`${API_URL}/adoption/create`, body, { observe: 'response' })
+    return this.http.post<Adoption>(`${API_URL}/authenticated/adoption/create`, body, { observe: 'response' })
   }
 
   findAllAdoptions(): Observable<HttpResponse<Adoption[]>> {
-    return this.http.get<Adoption[]>(`${API_URL}/adoption/viewAll`, { observe: 'response' })
+    return this.http.get<Adoption[]>(`${API_URL}/public/adoption/viewAll`, { params: this.params, observe: 'response' })
   }
 
   findAdoptionById(adoptionId: String): Observable<HttpResponse<Adoption>> {
-    return this.http.get<Adoption>(`${API_URL}/adoption/viewOne/${adoptionId}`, { observe: 'response' })
+    return this.http.get<Adoption>(`${API_URL}/public/adoption/viewOne/${adoptionId}`, { observe: 'response' })
   }
 }
