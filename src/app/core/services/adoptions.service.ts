@@ -29,10 +29,10 @@ export class AdoptionsService {
   }
 
   updateAdoptionById(adoptionId: String, body: null): Observable<HttpResponse<Adoption>> {
-    return this.http.put<Adoption>(`${API_URL}/adoption/update/${adoptionId}`, body, { observe: 'response' })
-   }
-   deleteAdoptionById(adoptionId: String): Observable<HttpResponse<Adoption>> {
-     return this.http.delete<Adoption>(`${API_URL}/adoption/delete/${adoptionId}`, { observe: 'response' })
-   }
- 
+    return this.http.put<Adoption>(`${API_URL}/authenticated/adoption/update/${adoptionId}`, body, { observe: 'response' })
+  }
+  deleteAdoptionById(adoptionId: String): Observable<HttpResponse<Adoption>> {
+    return this.http.delete<Adoption>(`${API_URL}/authenticated/adoption/delete/${adoptionId}`, { observe: 'response' })
+  }
+
 }
