@@ -1,0 +1,29 @@
+<div class="row" *ngFor="let adoption of Adoptions" > 
+  <div *ngIf="!adoption.rated">
+  <mat-card>
+    <mat-card-title *ngIf="adoption.pet_name">{{adoption.pet_name}}</mat-card-title>
+    <div class="row">
+    <mat-card-subtitle>{{adoption.species}}</mat-card-subtitle>
+    <mat-card-subtitle>{{adoption.gender}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="adoption.data_nascimento">Nascidos:
+      {{adoption.data_nascimento | date: 'dd/MM/yyyy':"UTC"}}
+    </mat-card-subtitle>
+  </div>
+  <img mat-card-image [src]="adoption.image" alt="Photo of a {{adoption.pet_name}}">
+  <mat-card-content>
+    <p>
+      {{adoption.description}}
+      
+    </p>
+  </mat-card-content>
+  <div class="buttons">
+    <button class="botao-aceito" mat-mini-fab color="primary" aria-label="Example icon button with a delete icon" (click)="updateAdoptions(adoption._id)">
+      <mat-icon>done</mat-icon>
+    </button>
+    <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="deleteAdoptions(adoption._id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</mat-card>
+</div>
+  </div>

@@ -40,6 +40,13 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./modules/about-us/about-us.module').then(module => module.AboutUsModule)
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(module => module.AdminModule)
+  }
+
+
+
 
 
 ];
