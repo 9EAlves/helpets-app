@@ -1,0 +1,16 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  .content {
+    padding: 16px
+  }
+  
+  .buttons {
+    justify-content: center;
+  }
+  .botao-aceito{
+    background-color: #009000;
+  }

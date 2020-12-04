@@ -59,7 +59,7 @@ export class NewDisappearedComponent implements OnInit, OnDestroy {
       gender: this._builder.control(null),
       event_date: this._builder.control(null),
       description: this._builder.control(null),
-      rated: this._builder.control(true)
+      rated: this._builder.control(false)
       
     })
   }

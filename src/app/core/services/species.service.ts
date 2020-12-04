@@ -15,10 +15,10 @@ export class SpeciesService {
   ) { }
 
   createSpecie(body: Specie): Observable<HttpResponse<Specie>> {
-    return this.http.post<Specie>(`${API_URL}/species/create`, body, { observe: 'response' })
+    return this.http.post<Specie>(`${API_URL}/authenticated/species/create`, body, { observe: 'response' })
   }
 
   findAllSpecie(): Observable<HttpResponse<Specie[]>> {
-    return this.http.get<Specie[]>(`${API_URL}/species/viewAll`, { observe: 'response' })
+    return this.http.get<Specie[]>(`${API_URL}/authenticated/species/viewAll`, { observe: 'response' })
   }
 }

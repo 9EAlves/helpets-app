@@ -10,4 +10,5 @@ export interface Disappeared {
     event_date: String
     description: String
     user: User
+    rated: Boolean
 }
