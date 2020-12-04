@@ -67,7 +67,7 @@ export class NewAdoptionComponent implements OnInit, OnDestroy {
       castred: this._builder.control(null),
       description: this._builder.control(null, [Validators.required]),
       image: this._builder.control('.', [Validators.required]),
-      rated: this._builder.control(true),
+      rated: this._builder.control(false),
       user: this._builder.control('5f7f8edf64e491068053a9f7', [Validators.required])
     })
   }
@@ -81,7 +81,7 @@ export class NewAdoptionComponent implements OnInit, OnDestroy {
       data_nascimento: this._builder.control(null),
       description: this._builder.control(null, [Validators.required]),
       image: this._builder.control('.', [Validators.required]),
-      rated: this._builder.control(true),
+      rated: this._builder.control(false),
       user: this._builder.control('5f7f8edf64e491068053a9f7', [Validators.required])
     })
   }
